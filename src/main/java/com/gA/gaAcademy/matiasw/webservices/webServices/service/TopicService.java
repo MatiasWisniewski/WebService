@@ -1,5 +1,7 @@
 package com.gA.gaAcademy.matiasw.webservices.webServices.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,4 +22,10 @@ public class TopicService {
 		return t;
 	}
 
+	public List<Topic> getTopics() {
+		List<Topic> list = topicRepository.findAll();
+		return list;
+
+	}
+	
 }

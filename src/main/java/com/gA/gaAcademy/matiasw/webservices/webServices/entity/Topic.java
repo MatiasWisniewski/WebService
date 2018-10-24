@@ -24,7 +24,7 @@ public class Topic {
 	@Column(name = "description")
 	private String description;
 	
-	@Column(name = "description")
+	@Column(name = "author")
 	private int author;
 	
 	public Topic() {}
