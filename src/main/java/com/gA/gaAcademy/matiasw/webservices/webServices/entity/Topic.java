@@ -29,10 +29,11 @@ public class Topic {
 	
 	public Topic() {}
 
-	public Topic(String title, Date datePost, String description, int author) {
+	public Topic(String title, String description, int author) {
 		super();
 		this.title = title;
-		this.datePost = datePost;
+		Date d = new Date();
+		this.datePost = d;
 		this.description = description;
 		this.author = author;
 	}

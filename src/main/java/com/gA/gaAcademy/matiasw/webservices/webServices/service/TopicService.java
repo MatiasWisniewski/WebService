@@ -27,5 +27,22 @@ public class TopicService {
 		return list;
 
 	}
-	
+
+	public Topic getTopicByID(int id) {
+		Topic t = topicRepository.findById(id).get();
+		return t;
+	}
+
+	public Topic updateTopic(int id, Topic updateTopic) {
+
+		Topic toUpdateTopic = topicRepository.findById(id).get();
+		if (updateTopic.getAuthor() > 0)
+			toUpdateTopic.setAuthor(updateTopic.getAuthor());
+		if (updateTopic.getTitle() != null)
+			toUpdateTopic.setTitle(updateTopic.getTitle());
+		if (updateTopic.getDescription() != null)
+			toUpdateTopic.setDescription(updateTopic.getDescription());
+		toUpdateTopic = topicRepository.save(toUpdateTopic);
+		return toUpdateTopic;
+	}
 }
