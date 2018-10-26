@@ -45,4 +45,26 @@ public class TopicService {
 		toUpdateTopic = topicRepository.save(toUpdateTopic);
 		return toUpdateTopic;
 	}
-}
+
+	public int deleteTopicFisc(int id) {
+
+		topicRepository.deleteById(id);
+
+		return id;
+	}
+
+	public int deleteLogicTopic(int id) {
+			int toReturn = 0;
+		Topic t = topicRepository.findById(id).get();
+		if (!t.isDeleted())
+		    {
+			t.delete();
+			toReturn = t.getId();
+			topicRepository.save(t);
+		    }
+			return toReturn;
+		}
+		
+
+	}
+
